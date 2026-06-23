@@ -1,1 +1,297 @@
- 
+/* Reset básico e configurações de página */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+@view-transition {
+    navigation: auto;
+}
+
+@keyframes fadeInPage {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+body {
+    background-color: #1c1c1c; 
+    color: #ffffff;
+    min-height: 100vh;
+    animation: fadeInPage 0.3s ease-in-out;
+}
+
+/* Nova Barra de Navegação (sticky-bar) */
+.sticky-bar {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background-color: #cca424;
+    display: flex;
+    justify-content: space-between; 
+    align-items: center;
+    height: 60px; 
+    padding: 0;
+    width: 100%;
+}
+
+.nav-left {
+    display: flex;
+    align-items: center;
+    height: 100%;
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 20px;
+    border-right: 1px solid #917519;
+    height: 100%;
+}
+
+.logo-container img {
+    height: 45px; 
+    width: auto;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+
+.nav-item {
+    display: flex;
+    align-items: center;
+    padding: 0 35px;
+    border-right: 1px solid #917519;
+    height: 100%;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.nav-item a {
+    text-decoration: none;
+    color: #ffffff; 
+    font-size: 22px; 
+}
+
+.nav-item.active {
+    background-color: #917519; 
+}
+
+.nav-item.active a {
+    color: #dfd29d; 
+}
+
+.tab-viajar {
+    border-top-right-radius: 35px;
+    border-right: none;
+}
+
+.nav-right {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    padding-right: 20px;
+}
+
+.user-btn {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+    color: #ffffff;
+    font-size: 22px;
+}
+
+.user-icon {
+    width: 26px;
+    height: 26px;
+    fill: #000000;
+}
+
+/* Layout do Painel de Conteúdo */
+.main-container {
+    display: flex;
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 0 20px;
+    gap: 50px;
+}
+
+/* Seção dos Cards de Trens (Lado Esquerdo) */
+.trains-section {
+    flex: 1.2;
+}
+
+.trains-section h2 {
+    color: #cca424;
+    text-align: center;
+    font-size: 22px;
+    margin-bottom: 30px;
+    font-weight: normal;
+}
+
+.trains-section h2 small {
+    font-size: 18px;
+}
+
+.train-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.train-card {
+    background-color: #cca424;
+    color: #000000;
+    display: flex;
+    align-items: center;
+    padding: 15px 20px;
+    border-radius: 4px;
+}
+
+.train-icon {
+    font-size: 35px;
+    margin-right: 20px;
+}
+
+.train-info h3 {
+    font-size: 22px;
+    font-weight: 500;
+}
+
+.status {
+    font-size: 12px;
+    margin-top: 5px;
+    font-weight: bold;
+}
+
+.status.live {
+    color: #c0392b; 
+}
+
+.status.time {
+    color: #c0392b;
+}
+
+/* Formulário de Passagens (Lado Direito) */
+.search-section {
+    flex: 0.8;
+}
+
+.search-box {
+    background-color: #cca424;
+    padding: 30px 20px;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.input-group {
+    background-color: #e0e0e0;
+    padding: 10px 15px;
+    display: flex;
+    align-items: center;
+    border-radius: 4px;
+}
+
+.input-group.border-top {
+    border-top: 2px solid #b5b5b5;
+}
+
+.input-group label {
+    color: #333333;
+    width: 40px;
+    font-size: 16px;
+}
+
+.input-group input {
+    background: none;
+    border: none;
+    outline: none;
+    width: 100%;
+    font-size: 16px;
+    color: #000000;
+}
+
+.trip-type {
+    display: flex;
+    gap: 10px;
+}
+
+.type-btn {
+    flex: 1;
+    padding: 12px;
+    border: none;
+    background-color: #e0e0e0;
+    color: #333333;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+.type-btn.active {
+    background-color: #f5f5f5;
+    box-shadow: inset 0px -3px 0px #333333;
+}
+
+.date-select, .passenger-select select {
+    background-color: #cbd5e1;
+    padding: 12px;
+    border-radius: 4px;
+    color: #333333;
+    font-size: 14px;
+    width: 100%;
+    border: none;
+}
+
+.date-select {
+    display: flex;
+    justify-content: space-between;
+}
+
+.passenger-select select {
+    appearance: none;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='10' height='10' viewBox='0 0 10 10'><path d='M0 3l5 5 5-5z' fill='%23333'/></svg>");
+    background-repeat: no-repeat;
+    background-position: right 15px center;
+}
+
+.coupon-link {
+    color: #0066cc;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.btn-search {
+    background-color: #00a843;
+    color: #ffffff;
+    border: none;
+    padding: 15px;
+    font-size: 18px;
+    font-weight: bold;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.btn-search:hover {
+    background-color: #008f37;
+}
+
+.app-downloads {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.app-btn {
+    flex: 1;
+    background-color: #000000;
